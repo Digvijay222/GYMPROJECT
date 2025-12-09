@@ -1,0 +1,577 @@
+/* styles.css - Gym Management System */
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+
+    /* important for logout visibility */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.admin-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.profile-icon {
+    font-size: 70px;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+.admin-name {
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.admin-email {
+    font-size: 0.85em;
+    color: #bdc3c7;
+    opacity: 0.8;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin: 5px 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.nav-item a {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.nav-item a i {
+    margin-right: 15px;
+    font-size: 1.1em;
+    width: 25px;
+    text-align: center;
+}
+
+.nav-item a span {
+    white-space: nowrap;
+}
+
+.nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.nav-item.active a {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Logout nav item */
+.logout-item {
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 5px;
+}
+
+.logout-item a {
+    color: #e74c3c;
+    font-weight: 500;
+}
+
+.logout-item a:hover {
+    background-color: rgba(231, 76, 60, 0.12);
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: 25px 30px;
+    margin-left: 250px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Header */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.logo-and-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.gym-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.gym-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #2c3e50;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.date-time-info {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    font-size: 0.95em;
+    color: #555;
+}
+
+.date-time-info div {
+    margin: 3px 0;
+    font-weight: 500;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.banner-profile-icon {
+    font-size: 36px;
+    opacity: 0.9;
+}
+
+/* Data Cards */
+.stats-and-data {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top-data-row,
+.bottom-data-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.data-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.data-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.data-card h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    color: #2c3e50;
+    font-weight: 600;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* Attendance Card */
+.attendance-card {
+    flex: 0.25;
+    text-align: center;
+    min-width: 230px;
+}
+
+.attendance-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(#3498db 0% 75%, #ecf0f1 75% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    position: relative;
+}
+
+.attendance-circle::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+}
+
+.attendance-percent {
+    font-size: 2em;
+    font-weight: 700;
+    color: #3498db;
+    position: relative;
+    z-index: 1;
+}
+
+/* Plan Card */
+.plan-card {
+    flex: 0.25;
+    min-width: 280px;
+}
+
+.plan-search {
+    display: flex;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.plan-search input {
+    flex-grow: 1;
+    border: none;
+    padding: 12px 15px;
+    font-size: 14px;
+    background: transparent;
+    outline: none;
+}
+
+.plan-search button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.plan-search button:hover {
+    background: #2980b9;
+}
+
+.plan-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.plan-card th {
+    background: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid #eee;
+    font-size: 0.9rem;
+}
+
+.plan-card td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.plan-card tr:hover {
+    background: #f9f9f9;
+}
+
+/* Revenue Card */
+.revenue-card {
+    flex: 0.5;
+    min-width: 320px;
+}
+
+.chart-area {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.donut-chart-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(#3498db 0% 50%, #e74c3c 50% 80%, #2ecc71 80% 100%);
+    position: relative;
+}
+
+.donut-chart-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.legend {
+    font-size: 0.95em;
+}
+
+.legend div {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.revenue-dot { background-color: #3498db; }
+.expenses-dot { background-color: #e74c3c; }
+.profit-dot { background-color: #2ecc71; }
+
+/* Active Members Card */
+.active-members-card {
+    flex: 0.5;
+    min-width: 360px;
+}
+
+.sort-by {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.sort-by select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.member-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.member-list th {
+    background: #f8f9fa;
+    padding: 14px;
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid #eee;
+    font-size: 0.9rem;
+}
+
+.member-list td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+/* Status Colors */
+.status-active {
+    color: #27ae60;
+    font-weight: 600;
+    padding: 5px 12px;
+    background: rgba(39, 174, 96, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.status-pending {
+    color: #f39c12;
+    font-weight: 600;
+    padding: 5px 12px;
+    background: rgba(243, 156, 18, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.status-inactive {
+    color: #e74c3c;
+    font-weight: 600;
+    padding: 5px 12px;
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Inventory Card */
+.inventory-card {
+    flex: 0.5;
+    min-width: 340px;
+}
+
+.inventory-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inventory-card th {
+    background: #f8f9fa;
+    padding: 14px;
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid #eee;
+    font-size: 0.9rem;
+}
+
+.inventory-card td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.inventory-card button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+
+.inventory-card button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 15px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(52, 152, 219, 0.4);
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #7f8c8d;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .top-data-row,
+    .bottom-data-row {
+        flex-direction: column;
+    }
+
+    .data-card {
+        width: 100%;
+    }
+
+    .chart-area {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        overflow-y: auto;
+    }
+
+    .sidebar .admin-profile,
+    .sidebar .nav-item span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .top-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .date-time-info {
+        align-self: flex-start;
+    }
+}
